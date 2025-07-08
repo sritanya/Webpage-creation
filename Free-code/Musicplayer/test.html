@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lucio POST Request</title>
+</head>
+<body>
+  <h2>Submit Your Info to Lucio</h2>
+  <button onclick="sendPost()">send post</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function sendPost() {
+      const response = await fetch("https://workwithus.lucioai.com/get-started", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: "Pattanam Chaitanya Sri",
+          email: "pattanamchaitanyasri25@gmail.com"
+        })
+      });
+
+      const text = await response.text();
+      document.getElementById("output").textContent = text;
+    }
+  </script>
+</body>
+</html>
